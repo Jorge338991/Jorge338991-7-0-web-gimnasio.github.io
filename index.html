@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web gimnasio</title>
+
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/lightbox.min.css">
+    <link rel="stylesheet" href="css/leaflet.css">
+    <link rel="stylesheet" href="css/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>    
+    <link rel="stylesheet" href="css/estructura.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/filter.css">
+
+
+    <script src="./js/jquery-3.6.1.min.js"></script>
+
+
+    <script src="./js/aos.js"></script>
+    <script src="./js/jquery.nav.js"></script>
+    <script src="./js/lightbox.min.js"></script>
+    <script src="./js/jquery.waypoints.min.js"></script>
+    <script src="./js/jquery.counterup.min.js"></script>
+    <script src="./js/leaflet.js"
+    
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+        crossorigin="">
+    
+    </script>
+     <script src="./js/jquery.filterizr.min.js"></script>
+
+    <script>   
+
+
+        $(document).ready(function() { 
+
+           
+            var map = L.map('map').setView([41.890361928635876, 12.492241626300013], 17);
+
+            var marker = L.marker([41.890361928635876, 12.492241626300013]).addTo(map);
+
+            
+
+            
+
+                    
+                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', 
+                    {
+                    maxZoom: 19,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    }).addTo(map);
+
+
+
+            $('.counter').counterUp({
+                delay: 10,
+                time: 1000
+            });
+
+            
+            
+            $(window).scroll(function (event) {
+                var scroll = $(window).scrollTop();
+                if(scroll>5){
+
+                    $("#home").addClass("backgroundcolorgris");
+                    $("#home").removeClass("backgroundcolortransparente");
+
+                }
+                
+                else{
+
+                    $("#home").addClass("backgroundcolortransparente");
+                    $("#home").removeClass("backgroundcolorgris");
+                }
+
+                var scroll = $(window).scrollTop();
+                if(scroll>500){
+
+                    $("#box1").css("visibility","visible");
+                }
+                
+                else{
+
+                    $("#box1").css("visibility","hidden");
+
+                }
+
+                var scroll = $(window).scrollTop();
+                if(scroll>520){
+
+                    $("#box2").css("visibility","visible");
+                }
+                
+                else{
+
+                    $("#box2").css("visibility","hidden");
+
+                }
+
+                var scroll = $(window).scrollTop();
+                if(scroll>540){
+
+                    $("#box3").css("visibility","visible");
+                }
+                
+                else{
+
+                    $("#box3").css("visibility","hidden");
+
+                }
+
+                
+
+
+
+
+
+
+
+            });
+
+            AOS.init({
+                
+                delay: 500,
+                duration:1500,
+
+                });
+
+            $('#nav').onePageNav();
+
+            
+            
+
+            $("#butonli").click(function(){
+                
+                $("#li").removeClass("li_section11");
+                $("#li").addClass("li_section11_1");
+                
+
+            });
+
+             $(".filtr-container").filterizr({
+                
+                gutterPixels:10  /*Espaciado entre filtr-item en la caja filtr-container */
+            
+            });
+
+
+
+            /**********FUNCIONALIDADES MODO MOBIL**********/
+
+            $("#barsnav").click(function(){
+            if ( $("#barsnav").hasClass("fa-bars")){
+                $("#barsnav").addClass("fa-xmark");
+                $("#barsnav").removeClass("fa-bars");
+                $("#nav").css("height","250px");
+            }else{
+                $("#barsnav").removeClass("fa-xmark");
+                $("#barsnav").addClass("fa-bars");
+                $("#nav").css("height","0");
+            }
+        });
+
+            
+            
+
+            
+            
+
+            
+               
+
+        })
+
+            
+    </script>
+    
+
+
+</head>
+
+
+<body>
+
+
+    <nav id="home" class="flex m-jcc m-aic p-jcc p-aic">
+
+        <div class="flex  centrado m-fila m-jcsb m-aic m-wrap p-fila p-jcsb p-aic">
+
+            <div class="flex m-10 m-fila m-jcfs m-aic"><p>G2O Gym</p></div>
+
+            <div class="flex m-10 m-fila m-jcfe m-aic"><i id="barsnav" class="flex m-jcfe fa-solid fa-bars"></i></div>
+
+            <ul id="nav" class="flex m-100 m-columna m-jcsb m-aic p-50 p-fila p-jcse p-aic">
+
+                <li class="liopacitys "><a href="#section_1">Home</a></li>
+                <li class="liopacitys "><a href="#section_2">Services</a></li>
+                <li class="liopacitys "><a href="#section_3">About</a></li>
+                <li class="liopacitys "><a href="#section_5">Portfolio</a></li>
+                <li class="liopacitys "><a href="#section_8">Price</a></li>
+                <li class="liopacitys "><a href="#section_11">Contact</a></li>
+
+
+
+            </ul>
+
+        </div>
+
+
+    </nav>
+
+
+    <section id="section_1" class="flex m-jcc m-aic p-jcc p-aic">
+
+        <div class="flex centrado m-columna m-aifs m-wrap p-columna p-aifs p-jcc p-wrap ">
+
+            <div data-aos="fade-right" class="flex m-100 p-50">
+
+                    <h1>Ultimate<br>Fitness</h1>
+                
+            </div>
+
+            <div data-aos="fade-left" class="flex  m-100 p-50 ">
+                
+                <button>Our Price</button>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+    </section>
+
+
+    <section id="section_2" class="flex m-jcc m-aic p-jcc p-aic">
+
+        <div class="flex centrado m-columna m-jcc m-aic m-wrap p-columna p-jcc p-aic">
+        
+            <div class="flex m-100 m-columna m-jcc m-aic m-wrap p-60 p-columna p-jcc p-aic p-wrap textoCentrado">
+
+                <h2>Our Services</h2>
+
+                <p id="psuperior">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
+
+
+            </div>
+
+
+            <div class="flex m-90 m-columna p-90 p-fila p-jcse p-aic ">
+
+                <div data-aos="fade-up" data-aos-delay="300" class="flex m-columna m-100 m-aic m-jcc p-30 p-columna p-jcc p-aic">
+
+                    <a href="#section_1"><img class="imagen m-100 p-100" src="./fotos/1_002.jpg"></a>
+                    
+                    <div class="m-100 bordecaja">
+                    
+                        <strong>Aerobic</strong>
+                        <h5>World class coaching</h5>
+                        <p class="pcuadroimagen">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+                    
+                    </div>
+                
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="500" class="flex m-columna m-aic m-jcc p-30 p-columna p-jcc p-aic">
+
+                    <a href="#section_1"><img class="imagen p-100" src="./fotos/2_002.jpg"></a>
+                    
+                    <div class="bordecaja">
+                    
+                        <strong>Aerobic</strong>
+                        <h5>World class coaching</h5>
+                        <p class="pcuadroimagen">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+                    
+                    </div>
+                
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="400" class="flex m-columna m-aic m-jcc p-30 p-columna p-jcc p-aic">
+
+                    <a href="#section_1"><img class="imagen p-100" src="./fotos/3.jpg"></a>
+                    
+                    <div class="bordecaja">
+                    
+                        <strong>Aerobic</strong>
+                        <h5>World class coaching</h5>
+                        <p class="pcuadroimagen">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+                    
+                    </div>
+                
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+
+    <section id="section_3" class="flex m-jcc m-aic p-jcc p-aic marginsection_3">
+
+        <div data-aos="fade-right" class="flex centrado m-100 m-fila m-jcc m-aic m-wrap p-fila p-jcsb p-aic paddincajasabout">
+
+                <div class="flex m-100 p-30 paddincajasabout"><img class="imagenesabout_profesional m-100 p-100" src="./fotos/1.jpg">
+            
+            
+                </div>
+
+                <div class="flex m-100 m-columna p-70 p-columna paddincajasabout">
+
+                    <h2 class="section_3_h2">About Us</h2>
+
+                    <p class="section_3_p">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat!</p>
+
+                </div>
+
+        </div>
+    
+    </section>
+
+
+    <section id="section_3_1" class="flex m-jcc m-aic p-jcc p-aic marginsection_3">
+
+            <div data-aos="fade-left" class="flex centrado m-100 m-fila m-jcc m-aic m-wrap p-fila p-jcsb p-aic paddincajasabout">
+    
+    
+                <div class="flex m-100 m-columna  p-70 p-columna paddincajasabout">
+    
+                    <h2 class="section_3_h2">About Us</h2>
+    
+                    <p class="section_3_p">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eligendi fugiat!</p>
+    
+                </div>
+
+                <div class="flex p-30 paddincajasabout"><img class="imagenesabout_profesional m-100 p-100" src="./fotos/tiocachas1.jpg"></div>
+    
+    
+    
+    
+            </div>
+
+
+
+    </section>
+
+
+    <section id="section_4" class="flex m-jcc m-aic  p-jcc p-aic marginsection_4">
+
+        <div class="centrado">
+
+
+            <div class="flex m-100 m-columna m-aic p-100 p-columna p-aic">
+
+                <h2>Amenities</h2>
+
+                <p id="section_4_p_arriba" class="textoCentrado">There are many variations of passages of Lorem Ipsum available, but the majority</p>
+
+
+            </div>
+
+            <div class="flex m-100 m-columna m-wrap m-aic p-100 p-fila p-jcsb">
+
+                <div data-aos="fade-up" data-aos-delay="400" class="flex m-90 m-columna m-aic m-jcc m-wrap p-30 p-columna p-aic textoCentrado paddincajasamenities">
+
+                    <i class="fa-solid fa-hot-tub-person"></i>
+
+                    <h6>Steam Bath</h6>
+
+                    <p class="section_4_p">Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod</p>
+
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="600" class="flex m-90 m-columna m-aic m-jcc m-wrap  p-30 p-columna p-aic textoCentrado paddincajasamenities">
+
+                    <i class="fa-solid fa-wifi"></i>
+
+                    <h6>Wi-Fi</h6>
+
+                    <p class="section_4_p">Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod</p>
+
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="700" class="flex m-90 m-columna m-aic m-jcc m-wrap  p-30 p-columna p-aic textoCentrado paddincajasamenities">
+
+                    <i class="fa-solid fa-temperature-arrow-up"></i>
+
+                    <h6>Air Conditioned</h6>
+
+                    <p class="section_4_p">Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod</p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <section id="section_5" class="flex m-jcc m-aic p-jcc p-aic marginsection_5 ">
+
+        <div class="flex centrado m-columna m-aic m-jcc p-columna p-jcc p-aic">
+        
+            <div class="flex m-80 m-columna m-jcc m-aic p-60 p-columna p-jcc p-aic p-wrap textoCentrado">
+
+                <h2>Portfolio</h2>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
+
+
+            </div>
+
+            <div class="flex m-100 m-fila m-jcc m-aic p-100 p-fila p-jcc p-aic">
+
+                
+                <ul class="flex p-30 p-fila p-jcsb p-aic">
+
+                        <li data-filter="all" id="all" class="liall">All</li>
+
+                        <li data-filter="graphic" id="graphic" class="li">Graphic</li>
+
+                        <li data-filter="project" id="project" class="li">Project</li>
+
+                        <li data-filter="fullstack" id="fullstack" class="li">Fullstack</li>
+
+                </ul>    
+            
+
+
+            </div>
+
+
+
+            <div data-aos="fade-up" data-aos-delay="700"  class="filtr-container flex m-100 m-columna m-jcc m-aic m-wrap p-100 p-fila p-jcsb p-aic p-wrap">
+                
+    
+
+                <div  class="filtr-item cajasgaleria m-80 p-25" data-category="all, graphic">
+                    
+                    <a href="./fotos/img1.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="m-100 p-100 img_galeria" src="./fotos/img1.jpg" alt=""></a>
+                
+                </div>
+
+                <div  class="filtr-item cajasgaleria m-80 p-25" data-category="all, fullstack">
+                    
+                    <a href="./fotos/img2_003.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="m-100 p-100 img_galeria" src="./fotos/img2_003.jpg" alt=""></a>
+                
+                </div>
+
+                <div  class="filtr-item cajasgaleria m-80 p-25" data-category="all, project">
+                    
+                    <a href="./fotos/img3.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="m-100 p-100 img_galeria" src="./fotos/img3.jpg" alt=""></a>
+                
+                </div>
+
+                <div  class="filtr-item cajasgaleria m-80 p-25" data-category="all, fullstack">
+                    
+                    <a href="./fotos/img4_002.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="m-100 p-100 img_galeria" src="./fotos/img4_002.jpg" alt=""></a>
+                
+                </div>
+
+                <div  class="filtr-item cajasgaleria m-80 p-25" data-category="all, project">
+                    
+                    <a href="./fotos/img5.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="m-100 p-100 img_galeria" src="./fotos/img5.jpg" alt=""></a>
+                
+                </div>
+
+                <div  class="filtr-item cajasgaleria m-80 p-25" data-category="all, graphic">
+                    
+                    <a href="./fotos/img6.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="m-100 p-100 img_galeria" src="./fotos/img6.jpg" alt=""></a>
+                
+                </div>
+
+                <div  class="filtr-item cajasgaleria m-80 p-25" data-category="all, graphic">
+                    
+                    <a href="./fotos/img7.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="m-100 p-100 img_galeria" src="./fotos/img7.jpg" alt=""></a>
+                
+                </div>
+
+                <div  class="filtr-item cajasgaleria m-80 p-25" data-category="all, fullstack">
+                    
+                    <a href="./fotos/img8.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="m-100 p-100 img_galeria" src="./fotos/img8.jpg" alt=""></a>
+                
+                </div>
+
+
+            </div>
+
+    </section>
+
+    <section id="section_6" class="flex m-jcc m-aic p-jcc p-aic ">
+
+        <div class=" flex centrado m-80 m-columna m-aic m-jcc  p-fila p-jcsb p-aic">
+        
+            <div id="offer" class="flex m-columna m-100 m-jcc m-aic p-40 p-fila p-jcsb p-aic padre_relativo ">
+                <p><b>OFFER</b></p>
+                <p>50% off on Annual subscription.. grab the deal before it go!</p>
+
+            </div>
+
+            <div id="cuadrosuscribe" class="flex p-40 p-fila p-jcfe p-aic ">
+                
+                <button><a href="#section_1">Subscribe</a></button>
+                
+            </div>
+
+        </div>
+    </section>
+
+    <section id="section_7" class="flex m-jcc m-aic p-jcc p-aic marginsection_7 ">
+
+        <div class="flex centrado m-columna m-aic m-jcc  p-columna p-jcc p-aic">
+        
+            <div class="flex m-columna m-aic m-jcc p-60 p-columna p-jcc p-aic p-wrap textoCentrado">
+
+                <h2>Our Team</h2>
+
+                <p class="section_7p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
+
+
+            </div>
+
+
+            <div class="flex m-100 m-columna m-jcc m-aic m-wrap p-100 p-fila p-jcsb p-aic p-wrap">
+                
+                <div data-aos="fade-up" data-aos-delay="300"  class="flex m-80 m-columna m-jcsb m-aic m-wrap p-22 p-columna p-aic p-jcc all cajasourteam ">
+                    
+                    <img class="cajasourteamimg m-100 p-100" src="./fotos/img1_002.jpg">
+                    <h6 class="cajasourteamh6">James Rally</h6>
+                    <p class="cajasourteamp">CEO</p>
+
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="500"  class="flex m-80 m-columna m-jcsb m-aic m-wrap  p-22 p-columna p-aic p-jcc all cajasourteam ">
+                    
+                    <img class="cajasourteamimg m-100 p-100" src="./fotos/img2_002.jpg">
+                    <h6 class="cajasourteamh6">Kristen Viller</h6>
+                    <p class="cajasourteamp">Trainer</p>
+
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="700"  class="flex m-80 m-columna m-jcsb m-aic m-wrap  p-22 p-columna p-aic p-jcc all cajasourteam ">
+                    
+                    <img class="cajasourteamimg m-100 p-100" src="./fotos/img3_003.jpg">
+                    <h6 class="cajasourteamh6">Johanna Care</h6>
+                    <p class="cajasourteamp">Trainer</p>
+
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="900"  class="flex m-80 m-columna m-jcsb m-aic m-wrap  p-22 p-columna p-aic p-jcc all cajasourteam ">
+                    
+                    <img class="cajasourteamimg m-100 p-100" src="./fotos/img4.jpg">
+                    <h6 class="cajasourteamh6">Bruce Willamson</h6>
+                    <p class="cajasourteamp">Trainer</p>
+
+                </div>
+
+            </div>
+
+                
+
+
+
+
+
+        </div>
+
+    </section>
+
+    <section id="section_8" class="flex m-jcc m-aic p-jcc p-aic marginsection_8 ">
+
+        <div  class="flex centrado m-columna m-aic m-jcc p-columna p-jcc p-aic">
+        
+            <div class="flex m-80 m-columna m-jcc m-aic p-60 p-columna p-jcc p-aic p-wrap textoCentrado">
+
+                <h2>Price & Schedule</h2>
+
+                <p class="section_8p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
+
+            </div>
+
+            <div class="flex m-90 m-columna p-100 p-columna ">
+            
+                <div class="flex m-100 m-fila m-jcsb p-100 p-jcc ">
+
+
+
+                            <div class="flex p-20 p-jcfs cabecera_tabla">Time</div>
+
+                            <div class="flex p-30 p-jcfs cabecera_tabla">Class</div>
+
+                            <div class="flex p-20 p-jcfs cabecera_tabla">Price</div>
+
+                            <div class="flex p-20 p-jcfs cabecera_tabla">Join Now</div>
+
+
+
+
+                </div>
+
+
+                <div id="box1" data-aos="fade-up" data-aos-delay="300" class="flex m-100 m-fila m-jcsb m-aic p-100 p-jcc cajapadreprice ">
+
+
+
+                    <div class="flex m-20 m-columna m-aifs m-jcfs m-wrap p-20 p-fila p-jcfs p-aic">10:00am - 12:00am</div>
+
+                    <div class="flex m-30 m-columna m-aibl m-jcfs m-wrap p-30 p-columna p-aifs p-jcc"><h6>Rope Skipping</h6><p>Indoor</p></div>
+
+                    <div class="flex m-20 m-columna m-aibl m-jcfs m-wrap p-20 p-columna p-aifs p-jcc"><h6>$25</h6><p>Monthly</p></div>
+
+                    <div class="flex m-20 m-columna m-aibl m-jcfs m-wrap p-20 p-fila p-jcfs p-aic "><ul><a href="#section_1"><li class="li_section8">Join Now</li></a></ul></a></div>
+
+                </div>
+
+                <div id="box2" data-aos="fade-up" data-aos-delay="300" class="flex m-100 m-fila m-jcsb m-aic  p-100 p-jcc cajapadreprice ">
+
+
+
+                    <div class="flex m-20 m-columna m-aifs m-jcfs m-wrap  p-20 p-fila p-jcfs p-aic">12:00am - 2:00am</div>
+
+                    <div class="flex m-30 m-columna m-aibl m-jcfs m-wrap  p-30 p-columna p-aifs p-jcc"><h6>Intensity </h6><p>BW Training</p></div>
+
+                    <div class="flex m-20 m-columna m-aibl m-jcfs m-wrap  p-20 p-columna p-aifs p-jcc"><h6>$25</h6><p>Monthly</p></div>
+
+                    <div class="flex m-20 m-columna m-aibl m-jcfs m-wrap p-20 p-fila p-jcfs p-aic "><ul><a href="#section_1"><li class="li_section8">Join Now</li></a></ul></a></div>
+
+                </div>
+
+                <div id="box3" data-aos="fade-up" data-aos-delay="300" class="flex m-100 m-fila m-jcsb m-aic  p-100 p-jcc cajapadreprice ">
+
+
+
+                    <div class="flex m-20 m-columna m-aifs m-jcfs m-wrap p-20 p-fila p-jcfs p-aic">2:00am - 5:00am</div>
+
+                    <div class="flex m-30 m-columna m-aibl m-jcfs m-wrap p-30 p-columna p-aifs p-jcc"><h6>Yoga</h6><p>On the Beach</p></div>
+
+                    <div class="flex m-20 m-columna m-aifs m-jcfs m-wrap p-20 p-columna p-aifs p-jcc"><h6>$25</h6><p>Monthly</p></div>
+
+                    <div class="flex m-20 m-columna m-aifs m-jcfs m-wrap p-20 p-fila p-jcfs p-aic "><ul><a href="#section_1"><li class="li_section8">Join Now</li></a></ul></a></div>
+
+                </div>
+
+
+
+
+
+
+
+    
+    
+            </div>
+    
+        </div>
+            
+    </section>
+
+
+    <section id="section_9" class="flex m-jcc m-aic p-jcc p-aic">
+
+        <div  class="flex centrado m-columna m-aic m-jcsb p-fila p-jcse p-aic">
+        
+            <div class="flex m-columna m-aic m-jcsb p-columna p-aic p-jcc"><h5 class="counter">45</h5><p>trainer</p></div>
+
+
+            <div class="flex m-columna m-aic m-jcsb p-columna p-aic p-jcc"><h5 class="counter">115</h5><p>Equipments</p></div>
+
+
+            <div class="flex m-columna m-aic m-jcsb p-columna p-aic p-jcc "><h5 class="counter">245</h5><p>Customers</p></div>
+
+
+            <div class="flex m-columna m-aic m-jcsb p-columna p-aic p-jcc"><h5 class="counter">2</h5><p>Cafeteria</p></div>
+
+
+        </div>
+
+    </section>
+
+    
+    <section id="section_10" class="flex m-jcc m-aic p-jcc p-aic marginsection_10">
+
+        <div  class="flex centrado m-columna m-aic m-jcc p-columna p-jcc p-aic">
+        
+            <div class="flex m-columna m-aic m-jcc p-60 p-columna p-jcc p-aic p-wrap textoCentrado">
+
+                <h2>Testimonials</h2>
+
+                <p class="section_10p">Maxi creative technology company providing key digital services for everyone.</p>
+
+            </div>
+
+            <div  class="flex m-columna m-aic m-jcc p-100 p-fila p-jcse p-aisb p-wrap">
+
+                <div data-aos="fade-right"  class="flex m-80 m-columna m-aic m-jcc m_cajamargin p-40 p-columna   ">
+
+                    <div class="flex p-100 p-columna padre_relativo  ">
+
+                            <div class="flex p-90 p-columna bordecajatestimonials triangulillo comillas ">
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
+                            </div>
+
+                    </div>
+
+                    <div  class="flex p-100 p-fila paddingtop">
+
+                            <div class="flex p-20 P-fila p-jcfs p-aic  ">
+
+
+                                    <img class="img" src="./fotos/img2.jpg">
+
+
+                                       
+
+                            </div>
+
+                            <div class="flex m-80 m-columna m-jcc m-afs p-80 p-columna p-jcc p-afs  ">
+                                            
+                                <h4>Kristen Morres</h4>
+
+                                <p>XL Director</p>
+
+                            </div>
+
+                    </div>
+
+
+                    
+                </div>
+
+                <div data-aos="fade-left" class="flex  m-80 m-columna m-aic m-jcc  p-40 p-columna  ">
+
+                    <div class="flex p-100 p-columna padre_relativo  ">
+
+                            <div class="flex p-90 p-columna bordecajatestimonials triangulillo comillas ">
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
+                            </div>
+
+                    </div>
+
+                    <div  class="flex p-100 p-fila paddingtop">
+
+                            <div class="flex p-20 P-fila p-jcfs p-aic  ">
+
+
+                                    <img class="img" src="./fotos/img2.jpg">
+
+
+                                       
+
+                            </div>
+
+                            <div  class="flex m-80 m-columna m-jcc m-afs  p-80 p-columna p-jcc p-afs  ">
+                                            
+                                <h4>Kristen Morres</h4>
+
+                                <p>XL Director</p>
+
+                            </div>
+
+                    </div>
+
+
+                    
+                </div>
+
+
+
+
+                
+
+                
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="section_11" class="flex m-jcc m-aic p-jcc p-jcc p-aic marginsection_11">
+
+        <div  class="flex centrado m-columna m-jcc m-aic p-jcc p-columna p-jcc p-aic">
+        
+            <div class="flex m-80 m-columna m-jcc m-aic  p-60 p-columna p-jcc p-aic p-wrap textoCentrado">
+
+                <h2>Let us know</h2>
+
+                <p class="section_11p">There are many variations of passages of Lorem Ipsum available, but the majority</p>
+
+            </div>
+
+            <div data-aos="fade-up" class="flex m-80 m-columna m-jcc m-aic p-60 p-columna p-jcc p-aic">
+                                
+                    <input class="input" placeholder="Full name">
+                    <input class="input" placeholder="Email">
+                    <input id="messaje" type="text" placeholder="Message">
+
+            </div>
+
+            <div data-aos="fade-up" class="flex p-60 p-columna p-jcc p-aic">
+
+                <button id="butonli"><ul><li id="li" class="li_section11">Send Your Message</li></ul></a></button>
+
+                
+
+                
+            </div>
+
+            <div id="map" class="flex  m-80 m-fila m-jcc m-aic p-100 p-fila p-jcc p-aic">
+
+            </div>
+        </div>
+        
+
+    </section>
+
+    <footer class= "flex m-jcc m-aic p-jcc p-aic ">
+
+        <div class="flex centrado p-fila p-jcsb p-aic">
+     
+            <div class="flex p-30 p-columna p-jcc p-aifs">
+
+                    <p>Bootstrap Theme by WebThemez.</p>
+                    <p>© All Rights Reserved</p>
+
+            </div>
+
+            <div class="flex p-30 p-fila p-jcfe p-aic">
+
+                <a class="text-white" target="_blank" href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
+                <a class="text-white" target="_blank" href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                <a class="text-white" target="_blank" href="https://twitter.com/?lang=es"><i class="fa-brands fa-twitter"></i></a>
+                <a class="text-white" target="_blank" href="https://dribbble.com/"><i class="fa-brands fa-dribbble"></i></a>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
